@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<script>try { const t = localStorage.getItem("lp-theme"); if (t === "dark" || t === "light") document.documentElement.dataset.theme = t; } catch (e) {}</script>
+	<script>(() => { let l = ""; try { l = localStorage.getItem("lp-lang") || ""; } catch (e) {} if (l !== "fr" && l !== "en") l = /^fr/i.test(navigator.language || "") ? "fr" : "en"; document.documentElement.lang = l; })();</script>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Terms of use – Little Post</title>
+	<meta name="description" content="The rules for using Little Post e-cards.">
+	<meta name="robots" content="index,follow">
+	<meta name="theme-color" content="#fff7ec">
+	<link rel="icon" href="res/favicon.svg" type="image/svg+xml">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Bagel+Fat+One&family=Gaegu:wght@400;700&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="css/common.css">
+	<link rel="stylesheet" href="css/shop.css">
+	<link rel="stylesheet" href="css/site.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header id="siteHeader"></header>
+
+<main id="main">
+	<div class="prose" data-lang="en" translate="no">
+		<h1>Terms of use</h1>
+		<p class="muted">Last updated: 25 October 2026</p>
+		<h2>Who we are</h2>
+		<p><strong data-business>Little Post</strong> is a small personal project run by Yumi<span data-address></span>. You can reach us at <a data-contact href="contact.html">our contact page</a>.</p>
+		<h2>What Little Post is</h2>
+		<p>Little Post lets you make e-cards: digital greeting cards with your own name and message. Each card gets a private web link and a QR code that open it. We don't send anything physical.</p>
+		<h2>It's free</h2>
+		<p>Every card is free. You need a free account to make cards, and we never ask for payment details.</p>
+		<h2>Your cards and links</h2>
+		<p>Anyone with a card's private link can open it, so only share it with the person it's for. Your cards and their links stay available for as long as your account exists.</p>
+		<h2>Fair use</h2>
+		<p>Please don't use cards to send hateful, threatening, harassing or unlawful messages. You're responsible for the messages you write. We may remove cards and close accounts that break this rule.</p>
+		<h2>Your account</h2>
+		<p>Keep your password safe and don't share your account. You can ask us to delete your account at any time.</p>
+		<h2>Our responsibility</h2>
+		<p>Little Post is a hobby project. We do our best to keep it running, but we can't promise it will always be available or that cards will be kept forever. We're not responsible for problems outside our control, such as outages at our providers or a link shared with the wrong person. Nothing in these terms limits the rights the law gives you.</p>
+		<h2>Law</h2>
+		<p>These terms are governed by the law of the country where Little Post is run, and you keep the protection of the mandatory laws of the country where you live. If something goes wrong, please <a href="contact.html">write to us</a> first, and we'll try to sort it out kindly.</p>
+	</div>
+	<div class="prose" data-lang="fr" lang="fr" translate="no">
+		<h1>Conditions d'utilisation</h1>
+		<p class="muted">Dernière mise à jour : 25 octobre 2026</p>
+		<h2>Qui sommes-nous</h2>
+		<p><strong data-business>Little Post</strong> est un petit projet personnel tenu par Yumi<span data-address></span>. Vous pouvez nous joindre via <a data-contact href="contact.html">notre page de contact</a>.</p>
+		<h2>Ce qu'est Little Post</h2>
+		<p>Little Post vous permet de créer des cartes virtuelles : des cartes de vœux numériques avec un prénom et votre message. Chaque carte reçoit un lien web privé et un QR code qui l'ouvrent. Nous n'envoyons rien de physique.</p>
+		<h2>C'est gratuit</h2>
+		<p>Toutes les cartes sont gratuites. Il faut un compte gratuit pour créer des cartes, et nous ne demandons jamais de coordonnées bancaires.</p>
+		<h2>Vos cartes et leurs liens</h2>
+		<p>Toute personne qui a le lien privé d'une carte peut l'ouvrir : ne le partagez qu'avec la personne à qui elle est destinée. Vos cartes et leurs liens restent disponibles tant que votre compte existe.</p>
+		<h2>Utilisation correcte</h2>
+		<p>N'utilisez pas les cartes pour envoyer des messages haineux, menaçants, harcelants ou illégaux. Vous êtes responsable des messages que vous écrivez. Nous pouvons supprimer les cartes et fermer les comptes qui ne respectent pas cette règle.</p>
+		<h2>Votre compte</h2>
+		<p>Gardez votre mot de passe en lieu sûr et ne partagez pas votre compte. Vous pouvez nous demander de supprimer votre compte à tout moment.</p>
+		<h2>Notre responsabilité</h2>
+		<p>Little Post est un projet fait pour le plaisir. Nous faisons de notre mieux pour qu'il fonctionne, mais nous ne pouvons pas garantir qu'il sera toujours disponible ni que les cartes seront conservées pour toujours. Nous ne sommes pas responsables des problèmes indépendants de notre volonté, comme une panne chez nos prestataires ou un lien partagé avec la mauvaise personne. Rien dans ces conditions ne limite les droits que la loi vous accorde.</p>
+		<h2>Droit applicable</h2>
+		<p>Ces conditions sont régies par la loi du pays où Little Post est géré, et vous gardez la protection des lois impératives de votre pays de résidence. En cas de problème, <a href="contact.html">écrivez-nous</a> d'abord : nous essaierons de trouver une solution à l'amiable.</p>
+	</div>
+</main>
+
+<footer id="siteFooter"></footer>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="js/i18n.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js"></script>
+<script src="js/config.js"></script>
+<script src="path.js"></script>
+<script src="js/app.js"></script>
+<script src="js/info.js"></script>
+</body>
+</html>

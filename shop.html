@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<script>try { const t = localStorage.getItem("lp-theme"); if (t === "dark" || t === "light") document.documentElement.dataset.theme = t; } catch (e) {}</script>
+	<script>(() => { let l = ""; try { l = localStorage.getItem("lp-lang") || ""; } catch (e) {} if (l !== "fr" && l !== "en") l = /^fr/i.test(navigator.language || "") ? "fr" : "en"; document.documentElement.lang = l; })();</script>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Shop all cards – Little Post</title>
+	<meta name="description" content="Browse every Little Post e-card by occasion. All free.">
+	<meta name="theme-color" content="#fff7ec">
+	<link rel="icon" href="res/favicon.svg" type="image/svg+xml">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Bagel+Fat+One&family=Gaegu:wght@400;700&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="css/common.css">
+	<link rel="stylesheet" href="css/shop.css">
+	<link rel="stylesheet" href="css/site.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header id="siteHeader"></header>
+
+<main id="main">
+	<nav class="crumbs" aria-label="Breadcrumb" id="crumbs"></nav>
+
+	<header class="page-head" id="pageHead">
+		<div>
+			<h1 id="headTitle">All cards</h1>
+			<p id="headText"></p>
+		</div>
+	</header>
+
+	<div class="chips scroll" id="chips" role="group" aria-label="Occasions"></div>
+
+	<div class="toolbar">
+		<label class="search">
+			<span class="visually-hidden">Search cards</span>
+			<svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5" fill="none" stroke="currentColor" stroke-width="2.6"/><path d="m16 16 5 5" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/></svg>
+			<input id="search" type="search" placeholder="Search birthday, love, sorry…" autocomplete="off">
+		</label>
+		<label class="sortbox" for="sort">Sort
+			<select id="sort">
+				<option value="popular">Popular</option>
+				<option value="newest">Newest</option>
+				<option value="az">Name A–Z</option>
+			</select>
+		</label>
+	</div>
+
+	<div class="filter-row" id="styleRow" role="group" aria-label="Filter"></div>
+
+	<p class="result-note" id="resultNote" aria-live="polite"></p>
+	<div class="tiles" id="grid"></div>
+
+	<div class="empty" id="empty" hidden>
+		<h3 id="emptyTitle">No cards here yet</h3>
+		<p id="emptyText"></p>
+		<button class="btn" id="clearBtn" type="button">Show all cards</button>
+	</div>
+</main>
+
+<footer id="siteFooter"></footer>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="js/i18n.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js"></script>
+<script src="js/config.js"></script>
+<script src="path.js"></script>
+<script src="js/app.js"></script>
+<script src="js/shop.js"></script>
+</body>
+</html>

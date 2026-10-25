@@ -1,0 +1,11 @@
+# Minimal Supabase CLI settings for Little Post (the hosted project keeps its own settings).
+project_id = "little-post"
+
+# Stripe calls this function, not a logged-in user, so it cannot require a Supabase login.
+# It verifies Stripe's signature itself instead.
+[functions.stripe-webhook]
+verify_jwt = false
+
+# create-checkout keeps the default (verify_jwt = true): only logged-in customers can start a payment.
+[functions.create-checkout]
+verify_jwt = true

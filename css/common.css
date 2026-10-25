@@ -1,0 +1,120 @@
+:root {
+	--cream: #fff7ec;
+	--paper: #fffdf8;
+	--ink: #3b2745;
+	--ink-soft: #6d5a78;
+	--berry: #ff6f9c;
+	--berry-deep: #d93f78;
+	--pink: #ffd3e1;
+	--butter: #ffe7a3;
+	--mint: #c4ebd5;
+	--sky: #c6e5ff;
+	--lilac: #e0d3f8;
+	--peach: #ffd9bd;
+	--blush: #fff0f4;           /* hero and recipient-page backdrop */
+	--check: rgba(255,111,156,.16); /* gingham stripes on that backdrop */
+	--ink-mid: #4d3a58;         /* body text on tinted panels */
+	--placeholder: #9a8aa6;
+	--edge: var(--ink);         /* outlines */
+	--shadow: var(--ink);       /* the offset "sticker" shadows */
+	--on-berry: var(--ink);     /* text and icons on pink buttons */
+	--card-ink: #3b2745;        /* greetings printed on card artwork: same in both themes */
+	--tint-amt: 100%;           /* how much of a category colour shows through on tinted panels */
+	--bad: #b3123f;
+	--bad-bg: #ffd0d6;
+	--bad-field: #fff5f6;
+	--good: #17613a;
+	--line: 2.5px solid var(--edge);
+	--pop: 4px 4px 0 var(--shadow);
+	color-scheme: light;
+	--font-display: "Bagel Fat One", "Arial Rounded MT Bold", ui-rounded, "Trebuchet MS", system-ui, sans-serif;
+	--font-body: "Nunito", ui-rounded, "Segoe UI", system-ui, sans-serif;
+	--font-hand: "Gaegu", "Comic Sans MS", "Segoe Print", cursive;
+}
+
+/* Dark theme: follows the device unless the visitor picked a theme with the header switch (data-theme on <html>). */
+@media (prefers-color-scheme: dark) {
+	:root:not([data-theme="light"]) {
+		--cream: #1b1320; --paper: #271c2e; --ink: #f7ecf3; --ink-soft: #c5b2cf; --ink-mid: #e1d2e8;
+		--berry-deep: #ff8fb5; --pink: #4a2238; --butter: #4a3c17; --mint: #173d2d; --sky: #172f47; --lilac: #2f2547; --peach: #4a2c1c;
+		--blush: #2a1824; --check: rgba(255,111,156,.07); --placeholder: #8f7d99; --edge: #b9a3c4; --shadow: #050307; --on-berry: #2a0f1f; --tint-amt: 30%;
+		--bad: #ff9db3; --bad-bg: #4d1a28; --bad-field: #33161f; --good: #9be7bb;
+		color-scheme: dark;
+	}
+}
+:root[data-theme="dark"] {
+	--cream: #1b1320; --paper: #271c2e; --ink: #f7ecf3; --ink-soft: #c5b2cf; --ink-mid: #e1d2e8;
+	--berry-deep: #ff8fb5; --pink: #4a2238; --butter: #4a3c17; --mint: #173d2d; --sky: #172f47; --lilac: #2f2547; --peach: #4a2c1c;
+	--blush: #2a1824; --check: rgba(255,111,156,.07); --placeholder: #8f7d99; --edge: #b9a3c4; --shadow: #050307; --on-berry: #2a0f1f; --tint-amt: 30%;
+	--bad: #ff9db3; --bad-bg: #4d1a28; --bad-field: #33161f; --good: #9be7bb;
+	color-scheme: dark;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+	margin: 0;
+	background: var(--cream);
+	color: var(--ink);
+	font-family: var(--font-body);
+	font-weight: 600;
+	line-height: 1.55;
+}
+img { max-width: 100%; display: block; }
+/* pages that carry both languages (FAQ, contact, legal): show the one matching <html lang> */
+html[lang="fr"] [data-lang="en"], html:not([lang="fr"]) [data-lang="fr"] { display: none !important; }
+button, input, textarea { font: inherit; color: inherit; }
+
+:focus-visible { outline: 3px solid var(--ink); outline-offset: 3px; border-radius: 10px; }
+
+/* A card cover: artwork + optional printed greeting. Sizes itself from its own width. */
+.cover-art {
+	display: block;
+	position: relative;
+	aspect-ratio: 7 / 5;
+	overflow: hidden;
+	container-type: inline-size;
+	background: var(--pink);
+}
+.cover-art img { width: 100%; height: 100%; object-fit: cover; }
+.cover-art .cap {
+	position: absolute;
+	left: 50%;
+	top: var(--y, 50%);
+	width: 50%;
+	transform: translate(-50%, -50%);
+	text-align: center;
+	font-family: var(--font-display);
+	font-size: 6.4cqw;
+	line-height: 1.12;
+	text-wrap: balance;
+	color: var(--card-ink);
+	pointer-events: none;
+}
+
+/* Buttons */
+.btn {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: .5em;
+	padding: .65em 1.3em;
+	background: var(--berry);
+	color: var(--on-berry);
+	border: var(--line);
+	border-radius: 999px;
+	box-shadow: var(--pop);
+	font-weight: 800;
+	text-decoration: none;
+	cursor: pointer;
+	transition: transform .12s ease, box-shadow .12s ease, background-color .12s ease;
+}
+.btn:hover { transform: translate(-2px, -2px); box-shadow: 6px 6px 0 var(--shadow); }
+.btn:active { transform: translate(3px, 3px); box-shadow: 1px 1px 0 var(--shadow); }
+.btn.soft { background: var(--paper); color: var(--ink); }
+.btn.butter { background: var(--butter); color: var(--ink); }
+.btn.small { padding: .4em .95em; font-size: .92rem; box-shadow: 3px 3px 0 var(--shadow); }
+
+@media (prefers-reduced-motion: reduce) {
+	* { transition-duration: .01ms !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; }
+}

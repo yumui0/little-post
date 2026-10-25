@@ -1,0 +1,87 @@
+body {
+	min-height: 100dvh;
+	background:
+		linear-gradient(90deg, var(--check) 50%, transparent 0),
+		linear-gradient(var(--check) 50%, transparent 0),
+		var(--bg, var(--blush));
+	background-size: 56px 56px;
+	overflow-x: hidden;
+}
+.scene {
+	min-height: 100dvh; display: flex; flex-direction: column; align-items: center; justify-content: center;
+	gap: 1.4rem; padding: 2rem 1rem; text-align: center;
+	--w: min(86vw, 600px);
+	--h: calc(var(--w) * 5 / 7);
+}
+.hello { font-family: var(--font-hand); font-size: 1.7rem; font-weight: 700; margin: 0; color: var(--berry-deep); }
+.tap { margin: 0; font-weight: 800; animation: bob 1.6s ease-in-out infinite; }
+@keyframes bob { 50% { transform: translateY(-5px); } }
+
+/* ---------- the card ---------- */
+.stage { perspective: 2200px; width: var(--w); height: var(--h); margin-top: 1rem; }
+.book {
+	position: relative; width: 100%; height: 100%;
+	transform-style: preserve-3d;
+	transition: transform 1s cubic-bezier(.5,.1,.2,1);
+}
+.inside, .cover { position: absolute; inset: 0; }
+.inside {
+	background: var(--paper); border: var(--line); border-radius: 22px; box-shadow: 8px 8px 0 var(--shadow);
+	padding: clamp(1rem, 4vw, 2.2rem); display: flex; flex-direction: column; justify-content: center; gap: .5rem; text-align: left;
+	overflow: auto; background-image: radial-gradient(color-mix(in srgb, var(--ink) 12%, transparent) 1.5px, transparent 1.5px); background-size: 22px 22px;
+}
+.to { font-family: var(--font-display); font-size: clamp(1.5rem, 5.4vw, 2.3rem); margin: 0; line-height: 1.1; overflow-wrap: anywhere; }
+.msg { font-family: var(--font-hand); font-size: clamp(1.25rem, 4.4vw, 1.75rem); line-height: 1.3; margin: 0; white-space: pre-wrap; overflow-wrap: anywhere; font-weight: 700; }
+.msg.long { font-size: clamp(1.05rem, 3.5vw, 1.35rem); }
+.from { font-family: var(--font-hand); font-size: clamp(1.25rem, 4vw, 1.6rem); text-align: right; margin: .3rem 0 0; color: var(--berry-deep); font-weight: 700; }
+
+.cover {
+	padding: 0; border: 0; background: none; cursor: pointer; display: block;
+	transform-style: preserve-3d; transition: transform 1s cubic-bezier(.5,.1,.2,1); transform-origin: left center;
+	-webkit-tap-highlight-color: transparent;
+}
+.face { position: absolute; inset: 0; backface-visibility: hidden; -webkit-backface-visibility: hidden; border: var(--line); border-radius: 22px; overflow: hidden; }
+.front { box-shadow: 8px 8px 0 var(--shadow); background: var(--paper); padding: 7px; }
+.front .cover-art { border-radius: 14px; width: 100%; height: 100%; }
+.back {
+	transform: rotateY(180deg); background-color: color-mix(in srgb, var(--tint, var(--pink)) var(--tint-amt), var(--paper));
+	background-image: radial-gradient(rgba(255,255,255,.55) 3px, transparent 3.5px); background-size: 26px 26px;
+	display: grid; place-items: center; font-size: clamp(3rem, 12vw, 5.5rem);
+}
+.cover:not([aria-expanded="true"]):hover { transform: rotateY(-14deg); }
+
+/* open: cover swings to the left and the pair slides to the middle */
+.book.open { transform: translateX(calc(var(--w) / 2)); }
+.cover[aria-expanded="true"] { transform: rotateY(-180deg); cursor: default; }
+
+/* narrow screens: hinge at the top so both halves fit */
+@media (max-width: 900px) {
+	.cover { transform-origin: center top; }
+	.back { transform: rotateX(180deg); }
+	.cover:not([aria-expanded="true"]):hover { transform: rotateX(12deg); }
+	.book.open { transform: translateY(calc(var(--h) / 2 + .5rem)); }
+	.cover[aria-expanded="true"] { transform: rotateX(180deg); }
+	.scene.is-open { padding-bottom: calc(var(--h) / 2 + 3rem); }
+	.inside { min-height: var(--h); }
+}
+@media (min-width: 901px) { .scene { --w: min(40vw, 560px); } }
+
+.after { animation: rise .6s .5s both cubic-bezier(.3,1.4,.5,1); }
+.after[hidden] { display: none; }
+@keyframes rise { from { opacity: 0; transform: translateY(14px); } }
+.is-open .hello, .is-open .tap { display: none; }
+.is-open .stage { margin-top: 0; }
+@media (max-width: 900px) { .is-open .stage { margin-top: calc(var(--h) / 2 + 1rem); } .is-open .after { margin-top: calc(var(--h) / 2 + 1rem); } }
+
+.oops { max-width: 28rem; }
+.oops h1 { font-family: var(--font-display); font-weight: 400; font-size: 2rem; margin: .4rem 0 .6rem; line-height: 1.1; }
+.oops p { color: var(--ink-soft); margin: 0 0 1.4rem; }
+
+/* confetti */
+.confetti { position: fixed; inset: 0; pointer-events: none; overflow: hidden; z-index: 5; }
+.confetti span { position: absolute; top: 0; left: 0; width: 12px; height: 16px; border-radius: 3px; border: 1.5px solid var(--edge); will-change: transform, opacity; }
+
+@media (prefers-reduced-motion: reduce) {
+	.book, .cover { transition: none; }
+	.tap { animation: none; }
+}

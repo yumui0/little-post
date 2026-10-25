@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<script>try { const t = localStorage.getItem("lp-theme"); if (t === "dark" || t === "light") document.documentElement.dataset.theme = t; } catch (e) {}</script>
+	<script>(() => { let l = ""; try { l = localStorage.getItem("lp-lang") || ""; } catch (e) {} if (l !== "fr" && l !== "en") l = /^fr/i.test(navigator.language || "") ? "fr" : "en"; document.documentElement.lang = l; })();</script>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>FAQ – Little Post</title>
+	<meta name="description" content="Answers to common questions about Little Post e-cards.">
+	<meta name="robots" content="index,follow">
+	<meta name="theme-color" content="#fff7ec">
+	<link rel="icon" href="res/favicon.svg" type="image/svg+xml">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Bagel+Fat+One&family=Gaegu:wght@400;700&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="css/common.css">
+	<link rel="stylesheet" href="css/shop.css">
+	<link rel="stylesheet" href="css/site.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header id="siteHeader"></header>
+
+<main id="main">
+	<div class="prose" data-lang="en" translate="no">
+		<h1>Questions, answered</h1>
+		<details><summary>How does it work?</summary><p>Pick a card, add the recipient's name and your message, and get it for free. You get a private link and a QR code to send it. They tap the card to open it.</p></details>
+		<details><summary>Is it really free?</summary><p>Yes. Every card is free, with no hidden costs and no card details needed. Little Post is a small personal project made for fun.</p></details>
+		<details><summary>Do I need an account?</summary><p>You need a free account to get cards, so they're saved and you can find them again. Browsing and previewing cards doesn't need one.</p></details>
+		<details><summary>When do I get my card?</summary><p>Right away. The card appears in your account under “My cards”, with its link and QR code.</p></details>
+		<details><summary>Can the recipient see other people's cards?</summary><p>No. Each card has its own long, secret link. Only people you give the link to can open it, so share it only with the person it's for.</p></details>
+		<details><summary>Can I change the message after sending?</summary><p>Not yet. Check the “Inside” preview first. If you made a mistake, you can simply make a new card.</p></details>
+		<details><summary>I forgot my password.</summary><p>Use <a href="forgot.html">Forgot password</a> and we'll email you a link to choose a new one.</p></details>
+		<details><summary>Something isn't working.</summary><p>Sorry about that! <a href="contact.html">Tell us</a> what happened and we'll fix it.</p></details>
+	</div>
+	<div class="prose" data-lang="fr" lang="fr" translate="no">
+		<h1>Vos questions, nos réponses</h1>
+		<details><summary>Comment ça marche ?</summary><p>Choisissez une carte, ajoutez le prénom du destinataire et votre message, et recevez-la gratuitement. Vous obtenez un lien privé et un QR code pour l'envoyer. Il suffit de toucher la carte pour l'ouvrir.</p></details>
+		<details><summary>C'est vraiment gratuit ?</summary><p>Oui. Toutes les cartes sont gratuites, sans frais cachés et sans coordonnées bancaires. Little Post est un petit projet personnel, fait pour le plaisir.</p></details>
+		<details><summary>Ai-je besoin d'un compte ?</summary><p>Un compte gratuit est nécessaire pour recevoir des cartes : elles y sont enregistrées et vous pouvez les retrouver. Pas besoin de compte pour parcourir et prévisualiser les cartes.</p></details>
+		<details><summary>Quand est-ce que je reçois ma carte ?</summary><p>Tout de suite. La carte apparaît dans votre compte, dans « Mes cartes », avec son lien et son QR code.</p></details>
+		<details><summary>Le destinataire peut-il voir les cartes des autres ?</summary><p>Non. Chaque carte a son propre lien, long et secret. Seules les personnes à qui vous donnez le lien peuvent l'ouvrir : partagez-le uniquement avec la personne à qui la carte est destinée.</p></details>
+		<details><summary>Puis-je modifier le message après l'envoi ?</summary><p>Pas encore. Vérifiez d'abord l'aperçu « Intérieur ». En cas d'erreur, vous pouvez simplement créer une nouvelle carte.</p></details>
+		<details><summary>J'ai oublié mon mot de passe.</summary><p>Utilisez <a href="forgot.html">Mot de passe oublié</a> et nous vous enverrons par e-mail un lien pour en choisir un nouveau.</p></details>
+		<details><summary>Quelque chose ne fonctionne pas.</summary><p>Désolée ! <a href="contact.html">Dites-nous</a> ce qui s'est passé et nous le corrigerons.</p></details>
+	</div>
+</main>
+
+<footer id="siteFooter"></footer>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="js/i18n.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js"></script>
+<script src="js/config.js"></script>
+<script src="path.js"></script>
+<script src="js/app.js"></script>
+<script src="js/info.js"></script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<script>try { const t = localStorage.getItem("lp-theme"); if (t === "dark" || t === "light") document.documentElement.dataset.theme = t; } catch (e) {}</script>
+	<script>(() => { let l = ""; try { l = localStorage.getItem("lp-lang") || ""; } catch (e) {} if (l !== "fr" && l !== "en") l = /^fr/i.test(navigator.language || "") ? "fr" : "en"; document.documentElement.lang = l; })();</script>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Log in – Little Post</title>
+	<meta name="description" content="Log in to your Little Post account.">
+	<meta name="robots" content="noindex">
+	<meta name="theme-color" content="#fff7ec">
+	<link rel="icon" href="res/favicon.svg" type="image/svg+xml">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Bagel+Fat+One&family=Gaegu:wght@400;700&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="css/common.css">
+	<link rel="stylesheet" href="css/shop.css">
+	<link rel="stylesheet" href="css/site.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header id="siteHeader"></header>
+
+<main id="main">
+	<div class="auth">
+	<div class="auth-art" aria-hidden="true" id="authArt">
+		<p class="hand">Cards you love, kept in one cosy place.</p>
+	</div>
+		<section class="auth-card" aria-labelledby="t">
+			<h1 id="t">Welcome back</h1>
+			<p>Log in to see your cards, favourites and orders.</p>
+			<div class="notice" id="setupNotice" hidden><div><strong>Accounts aren't switched on yet.</strong> The shop owner needs to connect Supabase first (see the README).</div></div>
+			<div class="notice ok" id="loginNote" hidden></div>
+			<form id="loginForm" novalidate>
+				<div class="field"><label for="email">Email address</label><input id="email" type="email" autocomplete="email" inputmode="email" required><span class="err" id="eEmail" hidden></span></div>
+				<div class="field"><label for="password">Password</label><input id="password" type="password" autocomplete="current-password" required><span class="err" id="ePass" hidden></span></div>
+				<div class="row-between">
+					<label class="check"><input type="checkbox" id="remember" checked> Remember me</label>
+					<a href="forgot.html">Forgot password?</a>
+				</div>
+				<p class="error" id="formError" role="alert" hidden></p>
+				<button class="btn" type="submit" id="submit">Log in</button>
+			</form>
+			<p class="alt">New here? <a href="signup.html" id="toSignup">Create an account</a></p>
+		</section>
+	</div>
+</main>
+
+<footer id="siteFooter"></footer>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="js/i18n.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js"></script>
+<script src="js/config.js"></script>
+<script src="path.js"></script>
+<script src="js/app.js"></script>
+<script src="js/auth.js"></script>
+</body>
+</html>

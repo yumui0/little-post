@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<script>try { const t = localStorage.getItem("lp-theme"); if (t === "dark" || t === "light") document.documentElement.dataset.theme = t; } catch (e) {}</script>
+	<script>(() => { let l = ""; try { l = localStorage.getItem("lp-lang") || ""; } catch (e) {} if (l !== "fr" && l !== "en") l = /^fr/i.test(navigator.language || "") ? "fr" : "en"; document.documentElement.lang = l; })();</script>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Notes – Little Post</title>
+	<meta name="description" content="Little notes left by Little Post visitors. Leave one too!">
+	<meta name="robots" content="index,follow">
+	<meta name="theme-color" content="#fff7ec">
+	<link rel="icon" href="res/favicon.svg" type="image/svg+xml">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Bagel+Fat+One&family=Gaegu:wght@400;700&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="css/common.css">
+	<link rel="stylesheet" href="css/shop.css">
+	<link rel="stylesheet" href="css/site.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header id="siteHeader"></header>
+
+<main id="main">
+	<h1 class="page-title">Notes</h1>
+	<p class="notes-intro">Leave a little note for Little Post and everyone who visits. Notes appear here once Yumi has read them.</p>
+	<div id="noteBox"></div>
+	<section aria-labelledby="wallTitle">
+		<h2 class="wall-title" id="wallTitle">Notes from visitors</h2>
+		<div id="wall"><div class="loading">Fetching the notes…</div></div>
+	</section>
+</main>
+
+<footer id="siteFooter"></footer>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="js/i18n.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js"></script>
+<script src="js/config.js"></script>
+<script src="path.js"></script>
+<script src="js/app.js"></script>
+<script src="js/notes.js"></script>
+</body>
+</html>

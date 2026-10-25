@@ -1,0 +1,11 @@
+# build output (made by scripts/build-site.mjs)
+dist/
+
+# tool caches
+.netlify/
+supabase/.temp/
+node_modules/
+
+# local secrets, if you ever make one
+.env
+.env.*

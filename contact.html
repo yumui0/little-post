@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<script>try { const t = localStorage.getItem("lp-theme"); if (t === "dark" || t === "light") document.documentElement.dataset.theme = t; } catch (e) {}</script>
+	<script>(() => { let l = ""; try { l = localStorage.getItem("lp-lang") || ""; } catch (e) {} if (l !== "fr" && l !== "en") l = /^fr/i.test(navigator.language || "") ? "fr" : "en"; document.documentElement.lang = l; })();</script>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Contact us – Little Post</title>
+	<meta name="description" content="Get in touch with Little Post.">
+	<meta name="robots" content="index,follow">
+	<meta name="theme-color" content="#fff7ec">
+	<link rel="icon" href="res/favicon.svg" type="image/svg+xml">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Bagel+Fat+One&family=Gaegu:wght@400;700&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="css/common.css">
+	<link rel="stylesheet" href="css/shop.css">
+	<link rel="stylesheet" href="css/site.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header id="siteHeader"></header>
+
+<main id="main">
+	<div class="prose" data-lang="en" translate="no">
+		<h1>Say hello</h1>
+		<p>Questions about an order, a card that isn't working, or just a kind word? Write to us and we'll get back to you as soon as we can.</p>
+		<p><a class="btn" data-mail-btn href="#">Email us</a></p>
+		<p class="muted">Please include the email you signed up with and, if it's about an order, the order number from your account.</p>
+		<p>Have a look at the <a href="faq.html">FAQ</a> first. Your answer might be there.</p>
+	</div>
+	<div class="prose" data-lang="fr" lang="fr" translate="no">
+		<h1>Dites bonjour</h1>
+		<p>Une question sur une commande, une carte qui ne fonctionne pas, ou simplement un petit mot gentil ? Écrivez-nous et nous vous répondrons dès que possible.</p>
+		<p><a class="btn" data-mail-btn href="#">Nous écrire</a></p>
+		<p class="muted">Indiquez l'adresse e-mail utilisée à l'inscription et, s'il s'agit d'une commande, le numéro de commande affiché dans votre compte.</p>
+		<p>Jetez d'abord un œil à la <a href="faq.html">FAQ</a> : votre réponse s'y trouve peut-être.</p>
+	</div>
+</main>
+
+<footer id="siteFooter"></footer>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="js/i18n.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js"></script>
+<script src="js/config.js"></script>
+<script src="path.js"></script>
+<script src="js/app.js"></script>
+<script src="js/info.js"></script>
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<script>try { const t = localStorage.getItem("lp-theme"); if (t === "dark" || t === "light") document.documentElement.dataset.theme = t; } catch (e) {}</script>
+	<script>(() => { let l = ""; try { l = localStorage.getItem("lp-lang") || ""; } catch (e) {} if (l !== "fr" && l !== "en") l = /^fr/i.test(navigator.language || "") ? "fr" : "en"; document.documentElement.lang = l; })();</script>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Little Post – e-cards for every occasion</title>
+	<meta name="description" content="A little shop of free e-cards. Pick a card, write a few kind words and send it as a private link or a QR code.">
+	<meta name="theme-color" content="#fff7ec">
+	<link rel="icon" href="res/favicon.svg" type="image/svg+xml">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Bagel+Fat+One&family=Gaegu:wght@400;700&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="css/common.css">
+	<link rel="stylesheet" href="css/shop.css">
+	<link rel="stylesheet" href="css/site.css">
+</head>
+<body>
+<a class="skip" href="#top">Skip to content</a>
+<header id="siteHeader"></header>
+
+<main id="top">
+	<!-- Hero: unchanged from the original design (only the price line was updated, since cards are no longer free) -->
+	<section class="hero">
+		<div class="hero-copy">
+			<h1>Cards for every little occasion</h1>
+			<p class="lead">Pick a cute card, write a few kind words and send it as a link or a QR code. Every card is free, and every card you send is kept safe in your account.</p>
+			<div class="hero-actions">
+				<a class="btn" href="shop.html">Browse the cards</a>
+			</div>
+			<p class="hand" id="heroCount"></p>
+		</div>
+		<div class="fan" id="fan" aria-hidden="true"></div>
+	</section>
+
+	<section class="sec" id="occasions" aria-labelledby="occTitle">
+		<div class="sec-head">
+			<div>
+				<h2 id="occTitle">Shop by occasion <span class="sprinkle" aria-hidden="true">✦</span></h2>
+				<p>Find the perfect card for every little moment.</p>
+			</div>
+		</div>
+		<div class="occ-grid" id="occGrid"></div>
+	</section>
+
+	<section class="sec" id="popular" aria-labelledby="popTitle">
+		<div class="sec-head">
+			<div><h2 id="popTitle">Popular eCards</h2><p>The ones everybody keeps picking.</p></div>
+			<a class="more" href="shop.html?sort=popular">See all popular cards →</a>
+		</div>
+		<div class="tiles trim" id="popGrid"></div>
+	</section>
+
+	<section class="sec" id="new" aria-labelledby="newTitle">
+		<div class="sec-head">
+			<div><h2 id="newTitle">New arrivals</h2><p>Fresh off the drawing table.</p></div>
+			<a class="more" href="shop.html?sort=newest">See what's new →</a>
+		</div>
+		<div class="tiles trim" id="newGrid"></div>
+	</section>
+
+	<section class="sec" id="personalise" aria-labelledby="persoTitle">
+		<div class="perso">
+			<div>
+				<h2 id="persoTitle">Make it yours</h2>
+				<p>Every card opens like a real one. Write inside it, add their name, and sign it from you.</p>
+				<ul>
+					<li>Add the recipient's name</li>
+					<li>Write your own words, or start from one of our ideas</li>
+					<li>Preview the inside before you send it</li>
+				</ul>
+				<a class="btn" href="shop.html">Pick a card to personalise</a>
+			</div>
+			<div class="perso-art" aria-hidden="true" id="persoArt"></div>
+		</div>
+	</section>
+</main>
+
+<footer id="siteFooter"></footer>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="js/i18n.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js"></script>
+<script src="js/config.js"></script>
+<script src="path.js"></script>
+<script src="js/app.js"></script>
+<script src="js/home.js"></script>
+</body>
+</html>
